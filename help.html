@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<!--
+  The help page.
+
+  Authored here as plain HTML on purpose. A Markdown source would need a
+  renderer at build time, and the only renderers available on a machine with
+  just the Command Line Tools are ones that would have to be installed —
+  a build dependency for a document that is written once and edited rarely.
+
+  build.sh copies this file into "PR Labeller.app/Contents/Resources/Help.html".
+  The identical file is what goes on the website, so there is one document to
+  keep right rather than two that drift.
+
+  Self-contained: no scripts, no web fonts, no images. It opens with no network,
+  prints properly, and reads in both light and dark appearance.
+-->
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PR Labeller Help</title>
+<style>
+  :root {
+    --ink:        #1d1d1f;
+    --ink-soft:   #55555c;
+    --ink-faint:  #86868b;
+    --bg:         #ffffff;
+    --panel:      #f5f5f7;
+    --rule:       #e2e2e6;
+    --accent:     #0a58bf;
+    --warn-bg:    #fff8e6;
+    --warn-rule:  #e8c96a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink:      #ececf1;
+      --ink-soft: #b6b6bf;
+      --ink-faint:#8a8a92;
+      --bg:       #1b1b1f;
+      --panel:    #26262b;
+      --rule:     #38383f;
+      --accent:   #74a9f5;
+      --warn-bg:  #332c17;
+      --warn-rule:#7a6528;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0 24px 96px;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+
+  header { padding: 56px 0 28px; border-bottom: 1px solid var(--rule); }
+  h1 { font-size: 32px; line-height: 1.15; margin: 0 0 8px; letter-spacing: -0.02em; }
+  header p { margin: 0; color: var(--ink-soft); font-size: 17px; }
+
+  h2 {
+    font-size: 22px; letter-spacing: -0.01em;
+    margin: 44px 0 12px; padding-top: 12px;
+    border-top: 1px solid var(--rule);
+  }
+  h3 { font-size: 17px; margin: 26px 0 6px; }
+  p, li { color: var(--ink); }
+  p { margin: 0 0 12px; }
+  ul, ol { margin: 0 0 14px; padding-left: 22px; }
+  li { margin: 0 0 6px; }
+  a { color: var(--accent); }
+
+  nav {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 28px 0 8px;
+  }
+  nav strong { display: block; font-size: 13px; text-transform: uppercase;
+               letter-spacing: 0.06em; color: var(--ink-faint); margin-bottom: 8px; }
+  nav ol { margin: 0; padding-left: 20px; }
+  nav li { margin: 0 0 3px; }
+
+  code, kbd {
+    font: 13.5px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1px 5px;
+    white-space: nowrap;
+  }
+  kbd { font-size: 13px; }
+
+  .note {
+    background: var(--panel);
+    border-left: 3px solid var(--rule);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 0 0 16px;
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+  .warn {
+    background: var(--warn-bg);
+    border-left: 3px solid var(--warn-rule);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 0 0 16px;
+    font-size: 15px;
+  }
+
+  dl { margin: 0 0 16px; }
+  dt { font-weight: 600; margin-top: 14px; }
+  dd { margin: 2px 0 0; color: var(--ink-soft); }
+
+  table { border-collapse: collapse; width: 100%; margin: 0 0 18px; font-size: 15px; }
+  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { font-weight: 600; color: var(--ink-faint); font-size: 13px;
+       text-transform: uppercase; letter-spacing: 0.05em; }
+  td:first-child { white-space: nowrap; width: 34%; }
+
+  footer {
+    margin-top: 56px; padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    color: var(--ink-faint); font-size: 14px;
+  }
+
+  @media print {
+    body { padding: 0; color: #000; background: #fff; }
+    nav { display: none; }
+    h2 { break-after: avoid; }
+    a { color: #000; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>PR&nbsp;Labeller Help</h1>
+  <p>A label editor for the Mac. It reads and writes the label files you already
+     have, and prints to a LabelWriter through the driver already installed.</p>
+</header>
+
+<nav>
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#start">Getting started</a></li>
+    <li><a href="#formats">Your labels, and the two file formats</a></li>
+    <li><a href="#editing">Editing a label</a></li>
+    <li><a href="#contacts">Contacts</a></li>
+    <li><a href="#printing">Printing</a></li>
+    <li><a href="#troubleshooting">If something is wrong</a></li>
+    <li><a href="#notdymo">What this is, and what it is not</a></li>
+    <li><a href="#licence">The licence</a></li>
+    <li><a href="#shortcuts">Keyboard shortcuts</a></li>
+  </ol>
+</nav>
+
+
+<h2 id="start">1 &nbsp;Getting started</h2>
+
+<h3>Install it properly first</h3>
+<p>Drag <strong>PR Labeller</strong> out of the disk image and into your
+<strong>Applications</strong> folder before you open it. An app run straight
+from a mounted disk image is put in a read-only holding area by macOS, where it
+cannot remember your printer, your folders or your window size — everything
+appears to work, and then forgets itself every time you quit.</p>
+
+<h3>You need a LabelWriter driver</h3>
+<p>PR Labeller does not contain any label sizes of its own. It asks macOS what
+your printer can take, and offers you exactly those. That is deliberate: the
+sizes you see are the sizes your own printer actually handles, rather than a
+list copied from somewhere that might not match.</p>
+<p>So the printer needs to be installed on this Mac in the ordinary way, with
+its driver, before there is anything to print on. If the label sizes are empty,
+see <a href="#no-sizes">no label sizes appear</a>.</p>
+
+<h3>Your first label</h3>
+<ol>
+  <li>Choose your printer in the <strong>PRINT</strong> panel.</li>
+  <li>Pick the label size loaded in the printer.</li>
+  <li>If the <strong>LABELS</strong> panel is empty, press <strong>Add Sample
+      Labels</strong>. Three examples are made for you, sized to the stock your
+      own printer takes, and put in <code>Documents/PR&nbsp;Labeller&nbsp;Labels</code>.</li>
+  <li>Click a label to open it, then <strong>Edit</strong> to change it.</li>
+  <li><strong>Print</strong>.</li>
+</ol>
+<p>If you already have labels from DYMO Label, point the app at them instead:
+<strong>Choose Folder…</strong> in the LABELS panel, or Settings ▸ Folders.
+They usually live in <code>Documents/DYMO Label Software/Label Files</code>.</p>
+
+<div class="note">
+  Nothing is moved, copied or converted. Your existing files stay where they
+  are, in the format they are already in.
+</div>
+
+
+<h2 id="formats">2 &nbsp;Your labels, and the two file formats</h2>
+
+<p>This is the one part of the app worth reading properly, because it is the
+only place PR Labeller behaves differently from what you may expect.</p>
+
+<table>
+  <tr><th>Extension</th><th>What it is</th></tr>
+  <tr>
+    <td><code>.label</code></td>
+    <td>DYMO's own format. PR Labeller reads and writes it, and a file saved
+        here still opens in DYMO Label on a machine that can still run it.</td>
+  </tr>
+  <tr>
+    <td><code>.prlabel</code></td>
+    <td>The same file with a little extra added — the parts DYMO's format has no
+        way to describe. Only PR Labeller opens these.</td>
+  </tr>
+</table>
+
+<h3>Why there are two</h3>
+<p>DYMO's format cannot describe everything you can now draw. Two things in
+particular:</p>
+<ul>
+  <li><strong>Angles.</strong> It stores four rotations only — upright, and a
+      quarter, half or three-quarter turn. Not 12°, not 45°.</li>
+  <li><strong>Shapes.</strong> It knows four: rectangle, ellipse, horizontal
+      line, vertical line. It has no word for a triangle, a heart, a star or a
+      rounded corner.</li>
+</ul>
+<p>Rather than quietly refusing to draw those things, or quietly changing them
+when you save, PR Labeller lets you draw them and then tells you what saving
+will cost.</p>
+
+<h3>The warning triangle</h3>
+<p>An orange triangle beside an object's angle or shape means <em>this
+particular thing cannot be written into a <code>.label</code> file as drawn</em>.
+The same warning appears in the status line. It is not an error and nothing is
+broken — the label prints exactly as you see it.</p>
+
+<h3>What happens when you save one</h3>
+<p>Saving a label containing something DYMO's format cannot hold offers you a
+choice:</p>
+<dl>
+  <dt>Keep Exact Angles (.prlabel)</dt>
+  <dd>Saves a <code>.prlabel</code> file alongside. Everything is preserved and
+      prints exactly as drawn. DYMO Label will not open it.</dd>
+  <dt>Square Up and Save</dt>
+  <dd>Writes an ordinary <code>.label</code> file, rounding the angle to the
+      nearest quarter turn and substituting the closest shape DYMO does have.
+      The file stays compatible; the design changes.</dd>
+</dl>
+<p>If a design has neither an odd angle nor an odd shape, none of this appears
+and it saves as an ordinary <code>.label</code> file.</p>
+
+<div class="note">
+  Both formats print identically. The choice only affects whether DYMO Label
+  can open the file afterwards — so if you have no reason to open it there, the
+  PR Labeller format costs you nothing.
+</div>
+
+<p>A label that exists in both formats shows twice in the list, with
+<em>· PR Labeller format</em> under the second one.</p>
+
+
+<h2 id="editing">3 &nbsp;Editing a label</h2>
+
+<p>Press <strong>Edit</strong> and the preview panel becomes the editing panel —
+its number turns red so it is obvious which mode you are in. The <strong>✕</strong>
+at its top right returns you to the preview.</p>
+
+<h3>Selecting</h3>
+<p>Click an object on the label to select it, or choose it from the menu beneath
+the label. Drag to move it; drag a corner handle to resize; drag the handle
+above it to rotate. Hold <kbd>⇧</kbd> while dragging a corner to keep the
+proportions.</p>
+<p>Objects snap to the label's edges and centres, with pink guides to show what
+they have caught on. Turn that off in Object ▸ Snap to Edges and Centres if you
+would rather place things freely.</p>
+
+<h3>Adding things</h3>
+<p><strong>+ Add</strong> puts a new object on the label:</p>
+<dl>
+  <dt>Text</dt><dd>Plain text at whatever size, face and alignment you set.</dd>
+  <dt>Address</dt>
+  <dd>Text that is filled in from whichever contact is selected when you print,
+      so one label can serve a whole address book.</dd>
+  <dt>Picture</dt>
+  <dd>An image file. Once placed it can be aligned within its box, mirrored
+      left to right or top to bottom, replaced in place, and the box snapped
+      tight to the picture or loosened around it. See
+      <a href="#pictures">snapping and loosening</a> below.</dd>
+  <dt>Barcode</dt><dd>Type the value; the bars are drawn from it.</dd>
+  <dt>Shape</dt>
+  <dd>A circle, square, rectangle, triangle, oval, heart, spade, club, diamond
+      or star. Choose the shape on one line; the fill shade, the outline shade
+      and the outline weight on the next.</dd>
+</dl>
+
+<h3 id="pictures">Pictures: snapping, loosening, and why alignment sometimes does nothing</h3>
+<p>A picture has two separate things: the <strong>frame</strong> you drag around
+the label, and the <strong>picture drawn inside it</strong>. The three scaling
+settings decide how the second follows the first.</p>
+<dl>
+  <dt>Fit in the box</dt>
+  <dd>As large as will go inside the frame. The picture therefore always touches
+      one pair of opposite edges — so it can be moved along the other pair, and
+      not at all along that one.</dd>
+  <dt>Fill the box</dt>
+  <dd>The whole frame, edge to edge. There is no slack in any direction, so the
+      alignment buttons have nothing to do.</dd>
+  <dt>Actual size</dt>
+  <dd>The picture's own size, whatever the frame does. This is the only setting
+      where a picture can float clear of all four edges.</dd>
+</dl>
+<p><strong>Snap Box</strong> pulls the frame tight around the picture.
+<strong>Unsnap Box</strong> adds two millimetres of room, and can be pressed
+repeatedly. Under <em>Fit in the box</em> it widens or heightens whichever pair
+of edges the picture is not already touching — growing the other pair would only
+make the picture bigger, which is not loosening anything. Under <em>Actual
+size</em> it adds the two millimetres on all four sides at once.</p>
+<div class="note">
+  If the alignment buttons appear to do nothing, the picture is filling the
+  frame in that direction. Press <strong>Unsnap Box</strong>, or switch to
+  Actual size.
+</div>
+
+<h3>Fills and shades</h3>
+<p>Fill and outline are chosen as a percentage of black rather than from a
+colour picker, because a LabelWriter prints in black on white and nothing else.
+A grey is produced by the printer driver as a dither pattern of black dots —
+so a 50% fill is a fine chequer, not a soft grey, and small text over one is
+hard to read.</p>
+
+<h3>If you change your mind</h3>
+<p><kbd>⌘Z</kbd> undoes anything, repeatedly, back to the state the label was in
+when you opened it. <strong>Revert to Saved</strong> in the File menu throws away
+every change at once.</p>
+
+
+<h2 id="contacts">4 &nbsp;Contacts</h2>
+
+<p>PR Labeller reads DYMO address books (<code>.abx</code>) and plain
+<code>.csv</code> files. On first run it looks in
+<code>Documents/DYMO Label Software/Address Books</code>; if yours is elsewhere,
+use <strong>Open Address Book…</strong> or Settings ▸ Folders.</p>
+
+<h3>Selecting several</h3>
+<ul>
+  <li><kbd>⇧</kbd>-click to select everything between the last one and this one.</li>
+  <li><kbd>⌘</kbd>-click to add or remove one at a time, wherever it is in the
+      list.</li>
+</ul>
+<p>Select several contacts and printing produces one label each, in list order.</p>
+
+<h3>Editing safely</h3>
+<p>Any change to the address book takes a dated backup of the whole file first.
+<strong>Contacts ▸ Restore Address Book…</strong> lists them and puts one back.
+Contacts ▸ Undo reverses the last change without going near the backups.</p>
+
+
+<h2 id="printing">5 &nbsp;Printing</h2>
+
+<p>Choose the printer, the label size, and how many copies. Selecting contacts
+prints one label per contact; with none selected it prints the label as it
+stands. A run of more than a handful asks you to confirm before it starts, with
+the total, so a mis-typed number does not empty a roll.</p>
+
+<h3>If the printing sits off-centre</h3>
+<p>Settings ▸ Print alignment nudges every printed label, in millimetres, in the
+orientation you see on screen. <strong>Print Alignment Test</strong> prints one
+label with centre lines and a ruler on it: measure from the centre line to the
+cut edge at each end, and enter the difference.</p>
+<p>The printer lays down 300 dots to the inch, so roughly 0.085&nbsp;mm is the
+smallest step that changes anything on paper. <strong>Rotate every label
+180°</strong> is there for stock that feeds the other way round.</p>
+
+<h3>Saving a PDF</h3>
+<p><strong>File ▸ Export PDF…</strong> writes the label at its true size, which
+is the reliable way to send one to somebody else or to a different printer.</p>
+
+
+<h2 id="troubleshooting">6 &nbsp;If something is wrong</h2>
+
+<h3 id="no-sizes">No label sizes appear</h3>
+<p>Almost always this means macOS has no LabelWriter driver, or the printer is
+not installed. PR Labeller asks the driver what sizes exist, so with no driver
+there is nothing to ask.</p>
+<ul>
+  <li>Open <strong>System Settings ▸ Printers &amp; Scanners</strong> and check
+      the printer is listed there. If it is not, add it.</li>
+  <li>If it is listed but no sizes appear here, the queue may have been set up
+      with a generic driver. Remove the printer and add it again, letting macOS
+      choose the LabelWriter driver.</li>
+  <li>The driver comes from the printer's manufacturer, not from this app.
+      PR Labeller ships nothing of theirs and never will.</li>
+</ul>
+<p>Settings ▸ Diagnostics reports what it found, including the line
+<em>cups queue: NOT MATCHED</em>, which is the usual culprit.</p>
+
+<h3>It forgets my printer, my folder, my window size</h3>
+<p>It is being run from the disk image rather than from Applications. Drag it to
+Applications, eject the disk image, and open it from there. See
+<a href="#start">Getting started</a>.</p>
+
+<h3>"macOS cannot verify this app is free from malware"</h3>
+<p>You should never see this: PR Labeller is signed and notarised by Apple, and
+opens in one step. If you do see it, the copy you have is damaged or is not one
+of ours — download it again rather than working around the warning.</p>
+
+<h3>The label prints in the wrong place</h3>
+<p>See <a href="#printing">if the printing sits off-centre</a>.</p>
+
+<h3>Reporting a problem</h3>
+<p>Settings ▸ Diagnostics ▸ <strong>Send…</strong> opens a message to
+<a href="mailto:prlabeller@gmail.com">prlabeller@gmail.com</a> with a technical
+summary already in it: versions, your printer and its driver, the label sizes
+the driver offered, and the alignment in use.</p>
+<p>It contains no addresses, no contacts and nothing from your labels. Nothing
+is sent by the app — the report is on screen before you press the button and in
+the message afterwards, so you can read it, delete anything you would rather
+not send, and send it yourself. If this Mac has no mail account set up, the
+report goes to the clipboard instead and you can paste it wherever you like.</p>
+<p>Say what you were doing, what you expected, and what happened instead. That
+sentence is usually worth more than everything underneath it.</p>
+
+
+<h2 id="notdymo">7 &nbsp;What this is, and what it is not</h2>
+
+<p>PR Labeller is an independent program. It is <strong>not affiliated with,
+endorsed by, or connected to Sanford,&nbsp;L.P. or its subsidiaries</strong>.
+DYMO is their trademark, used here only to say plainly which files this program
+reads and which printers it prints to.</p>
+
+<p>It contains none of their software. No templates, no stock catalogue, no
+driver files. Every label size you see is read from the driver already installed
+on your own Mac, every time the app runs, and the sample labels are generated
+from it too — which is also why they always match the stock you actually own.</p>
+
+<p>The <code>.label</code> format is read and written by understanding the files,
+which are plain text and can be opened in any text editor. Nothing has been
+decompiled or taken apart.</p>
+
+<div class="warn">
+  <p style="margin:0 0 8px"><strong>On label rolls.</strong> Some newer
+  LabelWriter models accept only rolls the printer itself recognises. That is a
+  matter between the printer and the roll, decided inside the printer's own
+  firmware before this program is involved at all.</p>
+  <p style="margin:0">PR Labeller does nothing about it, and never will. Not as
+  an option, not as a plug-in, not on request. Sending print jobs through the
+  driver you already have is lawful and settled; interfering with a measure that
+  controls access to something is a different question with criminal penalties
+  attached to it, and there is no version of that trade worth making for a
+  cheaper roll of labels.</p>
+</div>
+
+
+<h2 id="licence">8 &nbsp;The licence</h2>
+
+<p>Everything is unlocked during the beta, which runs until
+<strong>1&nbsp;March 2027</strong>. This is said here, and on the download page,
+before you install anything — discovered afterwards it would be a bait and
+switch; said up front it is simply the deal.</p>
+
+<p>After that date the app does not stop and nothing you have made becomes
+unusable:</p>
+<ul>
+  <li><strong>Printing your existing labels goes on working, for ever, free.</strong>
+      That is the job this was written to do, and it is not going behind a
+      payment.</li>
+  <li>Designing and editing labels, and printing a run from a list of contacts,
+      become part of version&nbsp;1.0.</li>
+  <li>The free tier keeps printing up to five copies at a time.</li>
+</ul>
+
+<p>There is no activation, no account and no server. Nothing here phones
+anywhere, and nothing stops working because a website went away.</p>
+
+
+<h2 id="shortcuts">9 &nbsp;Keyboard shortcuts</h2>
+
+<table>
+  <tr><th>Keys</th><th>Does</th></tr>
+  <tr><td><kbd>⌘Z</kbd> / <kbd>⇧⌘Z</kbd></td><td>Undo / redo</td></tr>
+  <tr><td><kbd>⌘S</kbd> / <kbd>⇧⌘S</kbd></td><td>Save / Save As…</td></tr>
+  <tr><td><kbd>⌘E</kbd></td><td>Export PDF…</td></tr>
+  <tr><td><kbd>⌘P</kbd> / <kbd>⇧⌘P</kbd></td><td>Print / print with the system dialog</td></tr>
+  <tr><td><kbd>⌘T</kbd> / <kbd>⇧⌘T</kbd></td><td>Insert text / insert address</td></tr>
+  <tr><td><kbd>⌘I</kbd></td><td>Insert picture…</td></tr>
+  <tr><td><kbd>⌘B</kbd></td><td>Insert barcode</td></tr>
+  <tr><td><kbd>⇧⌘K</kbd></td><td>Insert shape</td></tr>
+  <tr><td><kbd>⌘D</kbd></td><td>Duplicate the selection</td></tr>
+  <tr><td><kbd>⌘K</kbd></td><td>Centre the selection on the label</td></tr>
+  <tr><td><kbd>⌥⌘]</kbd> / <kbd>⌥⌘[</kbd></td><td>Bring forward / send backward</td></tr>
+  <tr><td><kbd>⌘A</kbd> / <kbd>esc</kbd></td><td>Select all objects / deselect</td></tr>
+  <tr><td><kbd>⌘+</kbd> <kbd>⌘−</kbd> <kbd>⌘0</kbd></td><td>Zoom in, out, actual size</td></tr>
+  <tr><td><kbd>⌘N</kbd> / <kbd>⇧⌘E</kbd></td><td>New contact… / edit contact…</td></tr>
+  <tr><td><kbd>⌘?</kbd></td><td>This page</td></tr>
+</table>
+
+
+<footer>
+  <p>Questions, problems and suggestions:
+     <a href="mailto:prlabeller@gmail.com">prlabeller@gmail.com</a>.</p>
+  <p>PR Labeller is made by Zeboose&nbsp;Ltd. DYMO and LabelWriter are
+     trademarks of Sanford,&nbsp;L.P.; this program is not associated with them.</p>
+</footer>
+
+</div>
+</body>
+</html>

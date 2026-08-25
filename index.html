@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!--
+  The download page. Served by GitHub Pages from the public releases repository.
+
+  The download links point at
+      https://github.com/zeboose/prlabeller/releases/…
+  so they depend on the repository staying at that address under the zeboose
+  organisation. Renaming either breaks every link on this page.
+  PUBLISHING.md has the release steps.
+
+  The download links use GitHub's /releases/latest/download/ form, which always
+  serves the newest release's asset of that exact name. That is why the disk
+  image is called PR-Labeller.dmg with no version in it: this page then never
+  needs touching again, and a stale download link is the one failure that costs
+  you the whole visit.
+
+  Self-contained on purpose — no scripts, no web fonts, no analytics, no
+  third-party anything. It loads on a bad connection and it tracks nobody.
+-->
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PR Labeller — a native label editor for the Mac</title>
+<meta name="description" content="A native Mac label editor for LabelWriter printers. Opens the .label files you already have and prints through the driver you already have. No Rosetta.">
+<style>
+  :root {
+    --ink:#1d1d1f; --ink-soft:#55555c; --ink-faint:#86868b;
+    --bg:#ffffff; --panel:#f5f5f7; --rule:#e2e2e6;
+    --accent:#0a58bf; --accent-ink:#ffffff;
+    --warn-bg:#fff8e6; --warn-rule:#e8c96a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink:#ececf1; --ink-soft:#b6b6bf; --ink-faint:#8a8a92;
+      --bg:#1b1b1f; --panel:#26262b; --rule:#38383f;
+      --accent:#3b7ae0; --accent-ink:#ffffff;
+      --warn-bg:#332c17; --warn-rule:#7a6528;
+    }
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; padding:0 24px 96px; background:var(--bg); color:var(--ink);
+    font:16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap { max-width:760px; margin:0 auto; }
+
+  header { padding:72px 0 8px; text-align:center; }
+  h1 { font-size:44px; line-height:1.08; margin:0 0 12px; letter-spacing:-0.03em; }
+  .tagline { font-size:20px; color:var(--ink-soft); margin:0 auto 6px; max-width:34em; }
+  .sub { font-size:15px; color:var(--ink-faint); margin:0 0 30px; }
+
+  .cta { text-align:center; margin:0 0 12px; }
+  .btn {
+    display:inline-block; background:var(--accent); color:var(--accent-ink);
+    text-decoration:none; font-size:17px; font-weight:600;
+    padding:13px 30px; border-radius:10px;
+  }
+  .btn:hover { filter:brightness(1.08); }
+  .cta small { display:block; margin-top:10px; color:var(--ink-faint); font-size:13.5px; }
+
+  .shot {
+    margin:36px 0 8px; border:1px solid var(--rule); border-radius:12px;
+    background:var(--panel); overflow:hidden;
+  }
+  .shot img { display:block; width:100%; height:auto; }
+  /* Until there is a screenshot, the slot explains itself rather than showing
+     a broken image icon — which on a download page reads as "this is broken". */
+  .shot-placeholder {
+    padding:64px 24px; text-align:center; color:var(--ink-faint); font-size:14px;
+  }
+
+  h2 { font-size:24px; letter-spacing:-0.015em; margin:52px 0 14px;
+       padding-top:14px; border-top:1px solid var(--rule); }
+  h3 { font-size:17px; margin:24px 0 6px; }
+  p { margin:0 0 13px; }
+  ul { margin:0 0 14px; padding-left:22px; }
+  li { margin:0 0 7px; }
+  a { color:var(--accent); }
+  strong { font-weight:600; }
+
+  table { border-collapse:collapse; width:100%; margin:0 0 18px; font-size:15px; }
+  th, td { text-align:left; padding:9px 12px; border-bottom:1px solid var(--rule); vertical-align:top; }
+  th { font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-faint); font-weight:600; }
+  td:first-child { white-space:nowrap; font-weight:600; width:30%; }
+
+  .deal { background:var(--panel); border:1px solid var(--rule); border-radius:12px; padding:20px 24px; }
+  .deal h3:first-child { margin-top:0; }
+  .warn { background:var(--warn-bg); border-left:3px solid var(--warn-rule);
+          border-radius:0 8px 8px 0; padding:14px 18px; margin:0 0 16px; font-size:15px; }
+  .note { background:var(--panel); border-left:3px solid var(--rule);
+          border-radius:0 8px 8px 0; padding:12px 16px; margin:0 0 16px;
+          color:var(--ink-soft); font-size:15px; }
+
+  code { font:13.5px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+         background:var(--panel); border:1px solid var(--rule); border-radius:4px; padding:1px 5px; }
+
+  footer { margin-top:60px; padding-top:22px; border-top:1px solid var(--rule);
+           color:var(--ink-faint); font-size:14px; text-align:center; }
+  footer p { margin:0 0 8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>PR&nbsp;Labeller</h1>
+  <p class="tagline">A native label editor for the Mac. It opens the label files
+     you already have and prints through the driver you already have.</p>
+  <p class="sub">No Rosetta. Nothing else in your setup has to change.</p>
+</header>
+
+<div class="cta">
+  <a class="btn" href="https://github.com/zeboose/prlabeller/releases/latest/download/PR-Labeller.dmg">Download for Mac</a>
+  <small>Free and fully unlocked until 1 March 2027 · macOS 14 or later ·
+         Apple Silicon and Intel · signed and notarised by Apple</small>
+</div>
+
+<div class="shot">
+  <!-- Replace the div below with:  <img src="screenshot.png" alt="PR Labeller editing a label"> -->
+  <div class="shot-placeholder">A screenshot of the app goes here.</div>
+</div>
+
+
+<h2>Why this exists</h2>
+
+<p>If you print labels on a LabelWriter, the software you use is probably an
+Intel application, and Apple is retiring Intel support.</p>
+
+<table>
+  <tr><th>Version</th><th>What happens to an Intel app</th></tr>
+  <tr><td>macOS 26.4</td>
+      <td>Every launch warns that it will stop working. Repeatedly.</td></tr>
+  <tr><td>macOS 27</td>
+      <td>Rosetta is no longer installed. The app runs only after you reinstall
+          Rosetta on demand — which, when your labelling software suddenly
+          refuses to open, looks exactly like it is broken.</td></tr>
+  <tr><td>macOS 28</td>
+      <td>It stops.</td></tr>
+</table>
+
+<p><strong>The printer was never the problem.</strong> The LabelWriter driver has
+been universal for years. Only the application was Intel-only. So the sensible
+answer is to replace the application, not the printer.</p>
+
+<p>PR&nbsp;Labeller — "Post&nbsp;Rosetta" — is that replacement. It reads and
+writes the same files, and prints through the same driver.</p>
+
+
+<h2>What it does</h2>
+
+<ul>
+  <li><strong>Opens your existing labels</strong> and renders them faithfully.
+      Every one of the 133 label files used to develop it renders
+      pixel-identically to the reference, and saving one back produces a
+      byte-identical file. Your templates are working assets; software that
+      quietly reformats them is not tidying up, it is losing your work.</li>
+  <li><strong>Prints</strong> to the printer and stock your own driver reports,
+      one label or a run of them.</li>
+  <li><strong>Fills in addresses</strong> from an existing address book
+      (<code>.abx</code>) or a CSV, one contact or a list.</li>
+  <li><strong>Edits and creates</strong> — text, addresses, pictures, barcodes
+      and shapes, with alignment, snapping, layering and unlimited undo.</li>
+  <li><strong>Rotates freely</strong>, at any angle rather than only right
+      angles.</li>
+  <li><strong>Prints straight.</strong> An alignment test and sub-millimetre
+      offsets, because every machine grips the stock slightly differently and no
+      amount of software can guess by how much.</li>
+</ul>
+
+<p><a href="help.html">Read the help</a> — the same page that ships inside the
+app.</p>
+
+
+<h2>The deal, before you download</h2>
+
+<div class="deal">
+  <h3>Free and fully unlocked until 1 March 2027</h3>
+  <p>Everything works during the beta, so that everything gets used and
+  everything gets tested.</p>
+
+  <h3>After that it does not stop</h3>
+  <p><strong>Free for ever:</strong> opening and printing your existing labels,
+  choosing the printer and stock, up to five copies at a time, picking an
+  address from your address book, the alignment test and the diagnostics. That
+  is the job this was written to do, and it is not going behind a payment.</p>
+  <p><strong>Included in 1.0 (£9.99, one payment):</strong> creating and editing
+  labels, rotation, shapes, editing contacts, and printing a run from several
+  contacts at once.</p>
+
+  <h3>Everyone who uses the beta gets 1.0 free</h3>
+  <p>This is all said here, before you download anything, on purpose.
+  Discovered afterwards it would be a bait and switch; said up front it is
+  simply the deal.</p>
+</div>
+
+<p>There is no account, no activation and no server. Nothing here phones
+anywhere, and nothing stops working because a website went away.</p>
+
+
+<h2>Requirements</h2>
+
+<ul>
+  <li>macOS 14 or later, on Apple Silicon or Intel</li>
+  <li>A LabelWriter with its driver installed — the same driver you use now</li>
+</ul>
+
+<div class="note">
+  Drag the app to your <strong>Applications</strong> folder before opening it.
+  An app run straight from a mounted disk image is put in a read-only holding
+  area by macOS, where it cannot remember your printer, your folders or your
+  window size.
+</div>
+
+
+<h2>What this is not</h2>
+
+<p>PR&nbsp;Labeller is an independent program. It is <strong>not made by,
+endorsed by, or connected to Sanford,&nbsp;L.P. or its subsidiaries</strong>.
+DYMO is their trademark, used here only to say plainly which files this program
+reads and which printers it prints to.</p>
+
+<p>It contains none of their software — no templates, no stock catalogue, no
+driver files. Every label size it offers is read from the driver already
+installed on your own Mac, every time it runs.</p>
+
+<p>It is <strong>not on the App Store</strong>. The App Store requires the
+sandbox, and the sandbox forbids both reading the printer driver's own
+configuration and the print path that was proved correct against real hardware.
+So it is distributed directly instead — signed with an Apple Developer ID and
+notarised by Apple, which is what lets it open in one step rather than behind a
+warning about unverified software.</p>
+
+<div class="warn">
+  <p style="margin:0 0 8px"><strong>On label rolls.</strong> Some newer
+  LabelWriter models accept only rolls the printer itself recognises. That is
+  decided inside the printer's own firmware, before this program is involved at
+  all.</p>
+  <p style="margin:0">PR&nbsp;Labeller does nothing about it, and never will.
+  Not as an option, not as a plug-in, not on request. Please do not ask.</p>
+</div>
+
+
+<h2>Something wrong?</h2>
+
+<p>In the app: <strong>Settings ▸ Diagnostics ▸ Send…</strong>, or
+<strong>Help ▸ Report a Problem</strong>. It opens a message with a technical
+summary already in it — versions, your printer and its driver, the label sizes
+the driver offered, and the alignment in use.</p>
+
+<p>It contains no addresses, no contacts and nothing from your labels, and
+nothing is sent by the app: you read it, delete anything you would rather not
+send, and press send yourself. Say what you were doing, what you expected, and
+what happened instead — that sentence is usually worth more than everything
+underneath it.</p>
+
+<p>Or write to <a href="mailto:prlabeller@gmail.com">prlabeller@gmail.com</a>.</p>
+
+
+<footer>
+  <p><a href="https://github.com/zeboose/prlabeller/releases">All releases and release notes</a>
+     · <a href="help.html">Help</a>
+     · <a href="mailto:prlabeller@gmail.com">prlabeller@gmail.com</a></p>
+  <p>Made by Zeboose&nbsp;Ltd. DYMO and LabelWriter are trademarks of
+     Sanford,&nbsp;L.P.; this program is not associated with them.</p>
+</footer>
+
+</div>
+</body>
+</html>
