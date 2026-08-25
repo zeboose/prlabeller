@@ -65,10 +65,9 @@
     background:var(--panel); overflow:hidden;
   }
   .shot img { display:block; width:100%; height:auto; }
-  /* Until there is a screenshot, the slot explains itself rather than showing
-     a broken image icon — which on a download page reads as "this is broken". */
-  .shot-placeholder {
-    padding:64px 24px; text-align:center; color:var(--ink-faint); font-size:14px;
+  .shot figcaption {
+    padding:10px 16px; border-top:1px solid var(--rule);
+    color:var(--ink-faint); font-size:13px; text-align:center;
   }
 
   h2 { font-size:24px; letter-spacing:-0.015em; margin:52px 0 14px;
@@ -117,10 +116,15 @@
          Apple Silicon and Intel · signed and notarised by Apple</small>
 </div>
 
-<div class="shot">
-  <!-- Replace the div below with:  <img src="screenshot.png" alt="PR Labeller editing a label"> -->
-  <div class="shot-placeholder">A screenshot of the app goes here.</div>
-</div>
+<figure class="shot">
+  <img src="screenshot.jpg" width="1260" height="920" loading="eager"
+       alt="The PR Labeller window: a list of labels, a list of contacts, a
+            preview of a Priority Mail label with a barcode, and the print
+            controls showing the printer, the stock size and the number of
+            copies.">
+  <figcaption>Pick a label, pick who it is for, print. The addresses shown are
+  invented.</figcaption>
+</figure>
 
 
 <h2>Why this exists</h2>
