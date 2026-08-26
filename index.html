@@ -148,6 +148,14 @@ Intel application, and Apple is retiring Intel support.</p>
 been universal for years. Only the application was Intel-only. So the sensible
 answer is to replace the application, not the printer.</p>
 
+<div class="note">
+  <strong>And upgrading DYMO's own software does not solve it.</strong> Neither
+  DYMO Label v8 nor the newer DYMO Connect has an Apple Silicon build — both are
+  Intel-only, and both depend on Rosetta. The advice you will see in most forum
+  threads, "install DYMO Connect instead", moves the problem to the same cliff
+  rather than avoiding it.
+</div>
+
 <p>PR&nbsp;Labeller — "Post&nbsp;Rosetta" — is that replacement. It reads and
 writes the same files, and prints through the same driver.</p>
 
@@ -175,6 +183,49 @@ writes the same files, and prints through the same driver.</p>
 
 <p><a href="help.html">Read the help</a> — the same page that ships inside the
 app.</p>
+
+
+<h2 id="questions">Questions people are asking</h2>
+
+<h3>My DYMO label software has stopped working on my Mac. What happened?</h3>
+<p>Almost certainly Rosetta. DYMO's label software is an Intel application, and
+Apple is retiring the translation layer that lets Intel software run on Apple
+Silicon. macOS&nbsp;27 uninstalls Rosetta during the upgrade, so an app that
+worked last week refuses this week. Nothing is wrong with your printer and
+nothing is wrong with your Mac.</p>
+
+<h3>Is there an Apple Silicon version of DYMO Label?</h3>
+<p>No. There is no Apple Silicon build of DYMO Label v8, and none of DYMO
+Connect either. Both are Intel-only.</p>
+
+<h3>Will installing DYMO Connect fix it?</h3>
+<p>No — that is the most common piece of advice on this subject and it does not
+work, because Connect is Intel-only too. It will run today under Rosetta and
+stop at the same point v8 does.</p>
+
+<h3>Do I have to buy a new label printer?</h3>
+<p>No. Your LabelWriter is fine. Its driver has been universal — native on Apple
+Silicon — for years. Only the application was stuck, which is what this replaces.</p>
+
+<h3>Will it work on my M1, M2, M3 or M4 Mac?</h3>
+<p>Yes, natively, with no Rosetta involved. It also runs natively on Intel Macs;
+the download is a universal build.</p>
+
+<h3>Will it open the labels I already have?</h3>
+<p>Yes, if they are <code>.label</code> files — DYMO Label v8's format. It opens
+and saves them without altering them: of the 133 label files used to develop it,
+every one renders pixel-identically to its reference and saves back
+byte-identical. Files created by DYMO Connect are a different format and are not
+supported.</p>
+
+<h3>Can I still use my address book?</h3>
+<p>Yes. It reads DYMO address books (<code>.abx</code>) and plain CSV files,
+prints one label or a run of them, and lets you edit contacts with dated backups
+taken before every change.</p>
+
+<h3>Do I have to buy special labels?</h3>
+<p>No. PR&nbsp;Labeller changes nothing about your stock. It asks your own
+printer driver what sizes it takes and offers you exactly those.</p>
 
 
 <h2>The deal, before you download</h2>
