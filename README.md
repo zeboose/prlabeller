@@ -21,7 +21,7 @@ for code, there is none here to find.
   that ships inside the app
 
 Issues are switched off deliberately. Problem reports come by email, through
-**Settings ▸ Diagnostics ▸ Send…** in the app, which attaches the technical
+**Settings ▸ Diagnostics ▸ Send** in the app, which attaches the technical
 detail that makes a report worth acting on. An issue tracker nobody is watching
 looks like a way to be heard and is not.
 
@@ -46,3 +46,5 @@ will — not as an option, not as a plug-in, not on request.
 ---
 
 Made by Zeboose Ltd. DYMO and LabelWriter are trademarks of Sanford, L.P.
+
+Written over the summer of 2026 by Richard Monteiro at Zeboose Ltd, with Claude.
