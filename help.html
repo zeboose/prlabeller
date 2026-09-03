@@ -199,6 +199,49 @@ They usually live in <code>Documents/DYMO Label Software/Label Files</code>.</p>
 </div>
 
 
+<h3>Renaming, duplicating and deleting a label</h3>
+<p>The <strong>⋯</strong> button in the LABEL panel carries <strong>Rename…</strong>,
+<strong>Duplicate</strong> and <strong>Reveal in Finder</strong>; <strong>Delete</strong>
+sits beside it. All four are in the <strong>File</strong> menu too, so nothing
+needs a right-click.</p>
+<ul>
+  <li><strong>Duplicate</strong> is the quickest way to start a new label —
+      most design work begins from the one that is nearly right.</li>
+  <li><strong>Delete</strong> moves the file to the Trash rather than destroying
+      it, so Finder's <em>Put Back</em> undoes it.</li>
+  <li><strong>Rename</strong> changes the file on disk, so &#8984;Z will not undo
+      it. Rename it back instead.</li>
+</ul>
+<p>If a design exists as both a <code>.label</code> and a <code>.prlabel</code>
+file, renaming or deleting takes the pair together — one without the other is a
+design that disagrees with itself.</p>
+
+
+<h3>Tidying a messy address</h3>
+<p>Addresses copied from a marketplace order arrive in whatever state the buyer
+typed them: everything on one line, ALL CAPITALS, no capitals at all, stray
+commas and full stops, and often a title or an order code that does not belong
+on an envelope.</p>
+<p>Press <strong>Tidy</strong> while editing a contact and the app splits the
+address at the commas, puts one element on each line, fixes the upper and lower
+case, and removes titles, letters after the name, marketplace user names and
+codes, and a telephone number left on the end.</p>
+<p>Two things make it safe to use without checking every time:</p>
+<ul>
+  <li>The <strong>original stays on screen underneath</strong> until you undo the
+      tidy or move to another contact, so you can compare the two.</li>
+  <li>The app compares the words and numbers before and after, and
+      <strong>warns you if anything disappeared</strong> that it did not mean to
+      remove.</li>
+</ul>
+<p>It deliberately never re-orders lines or moves a postcode. Getting the
+arrangement wrong is the one mistake that can cost a delivery, so it leaves that
+to you. Postcodes are left alone, as is anything you have already capitalised
+yourself — so <code>McDonald</code> stays <code>McDonald</code>.</p>
+<p><strong>Tidy Selected Contacts</strong> in the Contacts menu does the same to
+a whole selection at once, and <strong>Undo Contact Change</strong> puts it back.</p>
+
+
 <h2 id="formats">2 &nbsp;Your labels, and the two file formats</h2>
 
 <p>This is the one part of the app worth reading properly, because it is the
@@ -397,6 +440,24 @@ there is nothing to ask.</p>
 </ul>
 <p>Settings ▸ Diagnostics reports what it found, including the line
 <em>cups queue: NOT MATCHED</em>, which is the usual culprit.</p>
+
+<h3>My printer has disappeared, or printing suddenly fails</h3>
+<p>If a printer that worked yesterday has vanished from the list — or printing
+fails with a message about a file not being found, which is what macOS
+unhelpfully says when it cannot find the printer itself — the queue has usually
+dropped off rather than anything being wrong with your labels.</p>
+<ol>
+  <li>Check the printer is listed in <strong>System Settings ▸ Printers &amp;
+      Scanners</strong>. If it is missing, that is the problem.</li>
+  <li><strong>Unplug it from both power and USB</strong>, wait a few seconds,
+      and reconnect. A USB thermal printer occasionally needs the full cycle;
+      unplugging only the USB lead is often not enough.</li>
+  <li>Choose the printer again in the PRINT panel, since the old selection may
+      now point at a queue that no longer exists.</li>
+</ol>
+<p>If it happened shortly after installing other label software, that is worth
+mentioning when you report it — printer drivers from different applications can
+disturb one another's queues.</p>
 
 <h3>It forgets my printer, my folder, my window size</h3>
 <p>It is being run from the disk image rather than from Applications. Drag it to
