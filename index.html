@@ -3,7 +3,7 @@
   The download page. Served by GitHub Pages from the public releases repository.
 
   The download links point at
-      https://github.com/zeboose/prlabeller/releases/…
+      https://github.com/zeboose/prlabeller/releases/‚Ä¶
   so they depend on the repository staying at that address under the zeboose
   organisation. Renaming either breaks every link on this page.
   PUBLISHING.md has the release steps.
@@ -14,14 +14,14 @@
   needs touching again, and a stale download link is the one failure that costs
   you the whole visit.
 
-  Self-contained on purpose — no scripts, no web fonts, no analytics, no
+  Self-contained on purpose ‚Äî no scripts, no web fonts, no analytics, no
   third-party anything. It loads on a bad connection and it tracks nobody.
 -->
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PR Labeller — a native label editor for the Mac</title>
+<title>PR Labeller ‚Äî a native label editor for the Mac</title>
 <meta name="description" content="A native Mac label editor for LabelWriter printers. Opens the .label files you already have and prints through the driver you already have. No Rosetta.">
 <style>
   :root {
@@ -112,8 +112,8 @@
 
 <div class="cta">
   <a class="btn" href="https://github.com/zeboose/prlabeller/releases/latest/download/PR-Labeller.dmg">Download for Mac</a>
-  <small>Free and fully unlocked until 1 March 2027 · macOS 14 or later ·
-         Apple Silicon and Intel · signed and notarised by Apple</small>
+  <small>Free and fully unlocked until 1 March 2027 ¬∑ macOS 14 or later ¬∑
+         Apple Silicon and Intel ¬∑ signed and notarised by Apple</small>
 </div>
 
 <figure class="shot">
@@ -137,9 +137,8 @@ Intel application, and Apple is retiring Intel support.</p>
   <tr><td>macOS 26.4</td>
       <td>Every launch warns that it will stop working. Repeatedly.</td></tr>
   <tr><td>macOS 27</td>
-      <td>Rosetta is no longer installed. The app runs only after you reinstall
-          Rosetta on demand — which, when your labelling software suddenly
-          refuses to open, looks exactly like it is broken.</td></tr>
+      <td>Rosetta still works, and this is the last release where it does.
+          Anything Intel-only is on borrowed time.</td></tr>
   <tr><td>macOS 28</td>
       <td>It stops.</td></tr>
 </table>
@@ -150,13 +149,13 @@ answer is to replace the application, not the printer.</p>
 
 <div class="note">
   <strong>And upgrading DYMO's own software does not solve it.</strong> Neither
-  DYMO Label v8 nor the newer DYMO Connect has an Apple Silicon build — both are
+  DYMO Label v8 nor the newer DYMO Connect has an Apple Silicon build ‚Äî both are
   Intel-only, and both depend on Rosetta. The advice you will see in most forum
   threads, "install DYMO Connect instead", moves the problem to the same cliff
   rather than avoiding it.
 </div>
 
-<p>PR&nbsp;Labeller — "Post&nbsp;Rosetta" — is that replacement. It reads and
+<p>PR&nbsp;Labeller ‚Äî "Post&nbsp;Rosetta" ‚Äî is that replacement. It reads and
 writes the same files, and prints through the same driver.</p>
 
 
@@ -172,7 +171,7 @@ writes the same files, and prints through the same driver.</p>
       one label or a run of them.</li>
   <li><strong>Fills in addresses</strong> from an existing address book
       (<code>.abx</code>) or a CSV, one contact or a list.</li>
-  <li><strong>Edits and creates</strong> — text, addresses, pictures, barcodes
+  <li><strong>Edits and creates</strong> ‚Äî text, addresses, pictures, barcodes
       and shapes, with alignment, snapping, layering and unlimited undo.</li>
   <li><strong>Rotates freely</strong>, at any angle rather than only right
       angles.</li>
@@ -181,7 +180,7 @@ writes the same files, and prints through the same driver.</p>
       amount of software can guess by how much.</li>
 </ul>
 
-<p><a href="help.html">Read the help</a> — the same page that ships inside the
+<p><a href="help.html">Read the help</a> ‚Äî the same page that ships inside the
 app.</p>
 
 
@@ -190,8 +189,10 @@ app.</p>
 <h3>My DYMO label software has stopped working on my Mac. What happened?</h3>
 <p>Almost certainly Rosetta. DYMO's label software is an Intel application, and
 Apple is retiring the translation layer that lets Intel software run on Apple
-Silicon. macOS&nbsp;27 uninstalls Rosetta during the upgrade, so an app that
-worked last week refuses this week. Nothing is wrong with your printer and
+Silicon. Rosetta is not installed by default, so on a new Mac, or after a wipe,
+an Intel app will not open until you accept the prompt to install it. Apple has
+said Rosetta stays through macOS&nbsp;27 and largely goes in macOS&nbsp;28, so
+this is a problem with a date on it. Nothing is wrong with your printer and
 nothing is wrong with your Mac.</p>
 
 <h3>Is there an Apple Silicon version of DYMO Label?</h3>
@@ -199,20 +200,20 @@ nothing is wrong with your Mac.</p>
 Connect either. Both are Intel-only.</p>
 
 <h3>Will installing DYMO Connect fix it?</h3>
-<p>No — that is the most common piece of advice on this subject and it does not
+<p>No ‚Äî that is the most common piece of advice on this subject and it does not
 work, because Connect is Intel-only too. It will run today under Rosetta and
 stop at the same point v8 does.</p>
 
 <h3>Do I have to buy a new label printer?</h3>
-<p>No. Your LabelWriter is fine. Its driver has been universal — native on Apple
-Silicon — for years. Only the application was stuck, which is what this replaces.</p>
+<p>No. Your LabelWriter is fine. Its driver has been universal ‚Äî native on Apple
+Silicon ‚Äî for years. Only the application was stuck, which is what this replaces.</p>
 
 <h3>Will it work on my M1, M2, M3 or M4 Mac?</h3>
 <p>Yes, natively, with no Rosetta involved. It also runs natively on Intel Macs;
 the download is a universal build.</p>
 
 <h3>Will it open the labels I already have?</h3>
-<p>Yes, if they are <code>.label</code> files — DYMO Label v8's format. It opens
+<p>Yes, if they are <code>.label</code> files ‚Äî DYMO Label v8's format. It opens
 and saves them without altering them: of the 133 label files used to develop it,
 every one renders pixel-identically to its reference and saves back
 byte-identical. Files created by DYMO Connect are a different format and are not
@@ -240,7 +241,7 @@ printer driver what sizes it takes and offers you exactly those.</p>
   choosing the printer and stock, up to five copies at a time, picking an
   address from your address book, the alignment test and the diagnostics. That
   is the job this was written to do, and it is not going behind a payment.</p>
-  <p><strong>Included in 1.0 (£9.99, one payment):</strong> creating and editing
+  <p><strong>Included in 1.0 (¬£9.99, one payment):</strong> creating and editing
   labels, rotation, shapes, editing contacts, and printing a run from several
   contacts at once.</p>
 
@@ -258,7 +259,7 @@ anywhere, and nothing stops working because a website went away.</p>
 
 <ul>
   <li>macOS 14 or later, on Apple Silicon or Intel</li>
-  <li>A LabelWriter with its driver installed — the same driver you use now</li>
+  <li>A LabelWriter with its driver installed ‚Äî the same driver you use now</li>
 </ul>
 
 <div class="note">
@@ -276,14 +277,14 @@ endorsed by, or connected to Sanford,&nbsp;L.P. or its subsidiaries</strong>.
 DYMO is their trademark, used here only to say plainly which files this program
 reads and which printers it prints to.</p>
 
-<p>It contains none of their software — no templates, no stock catalogue, no
+<p>It contains none of their software ‚Äî no templates, no stock catalogue, no
 driver files. Every label size it offers is read from the driver already
 installed on your own Mac, every time it runs.</p>
 
 <p>It is <strong>not on the App Store</strong>. The App Store requires the
 sandbox, and the sandbox forbids both reading the printer driver's own
 configuration and the print path that was proved correct against real hardware.
-So it is distributed directly instead — signed with an Apple Developer ID and
+So it is distributed directly instead ‚Äî signed with an Apple Developer ID and
 notarised by Apple, which is what lets it open in one step rather than behind a
 warning about unverified software.</p>
 
@@ -299,15 +300,15 @@ warning about unverified software.</p>
 
 <h2>Something wrong?</h2>
 
-<p>In the app: <strong>Settings ▸ Diagnostics ▸ Send</strong>, or
-<strong>Help ▸ Report a Problem</strong>. It opens a message with a technical
-summary already in it — versions, your printer and its driver, the label sizes
+<p>In the app: <strong>Settings ‚ñ∏ Diagnostics ‚ñ∏ Send</strong>, or
+<strong>Help ‚ñ∏ Report a Problem</strong>. It opens a message with a technical
+summary already in it ‚Äî versions, your printer and its driver, the label sizes
 the driver offered, and the alignment in use.</p>
 
 <p>It contains no addresses, no contacts and nothing from your labels, and
 nothing is sent by the app: you read it, delete anything you would rather not
 send, and press send yourself. Say what you were doing, what you expected, and
-what happened instead — that sentence is usually worth more than everything
+what happened instead ‚Äî that sentence is usually worth more than everything
 underneath it.</p>
 
 <p>Or write to <a href="mailto:prlabeller@gmail.com">prlabeller@gmail.com</a>.</p>
@@ -315,8 +316,8 @@ underneath it.</p>
 
 <footer>
   <p><a href="https://github.com/zeboose/prlabeller/releases">All releases and release notes</a>
-     · <a href="help.html">Help</a>
-     · <a href="mailto:prlabeller@gmail.com">prlabeller@gmail.com</a></p>
+     ¬∑ <a href="help.html">Help</a>
+     ¬∑ <a href="mailto:prlabeller@gmail.com">prlabeller@gmail.com</a></p>
   <p>Made by Zeboose&nbsp;Ltd. DYMO and LabelWriter are trademarks of
      Sanford,&nbsp;L.P.; this program is not associated with them.</p>
   <p>Written over the summer of 2026 by Richard&nbsp;Monteiro at Zeboose&nbsp;Ltd,
