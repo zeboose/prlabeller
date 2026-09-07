@@ -137,8 +137,10 @@ Intel application, and Apple is retiring Intel support.</p>
   <tr><td>macOS 26.4</td>
       <td>Every launch warns that it will stop working. Repeatedly.</td></tr>
   <tr><td>macOS 27</td>
-      <td>Rosetta still works, and this is the last release where it does.
-          Anything Intel-only is on borrowed time.</td></tr>
+      <td>Rosetta is still there, but macOS no longer installs it for you. The
+          app opens only after you accept a prompt to install Rosetta — which,
+          when your labelling software suddenly refuses to open, looks exactly
+          like it is broken.</td></tr>
   <tr><td>macOS 28</td>
       <td>It stops.</td></tr>
 </table>
@@ -189,11 +191,10 @@ app.</p>
 <h3>My DYMO label software has stopped working on my Mac. What happened?</h3>
 <p>Almost certainly Rosetta. DYMO's label software is an Intel application, and
 Apple is retiring the translation layer that lets Intel software run on Apple
-Silicon. Rosetta is not installed by default, so on a new Mac, or after a wipe,
-an Intel app will not open until you accept the prompt to install it. Apple has
-said Rosetta stays through macOS&nbsp;27 and largely goes in macOS&nbsp;28, so
-this is a problem with a date on it. Nothing is wrong with your printer and
-nothing is wrong with your Mac.</p>
+Silicon. From macOS&nbsp;27, Rosetta is no longer installed for you, so the app
+will not open until you accept a prompt to install it — which looks exactly like
+the software has broken. From macOS&nbsp;28 it stops for good. Nothing is wrong
+with your printer and nothing is wrong with your Mac.</p>
 
 <h3>Is there an Apple Silicon version of DYMO Label?</h3>
 <p>No. There is no Apple Silicon build of DYMO Label v8, and none of DYMO
