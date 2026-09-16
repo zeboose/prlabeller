@@ -273,6 +273,29 @@ anywhere, and nothing stops working because a website went away.</p>
 </div>
 
 
+<h2 id="wont-open">If it will not open</h2>
+
+<p>Three things account for nearly all of it, in the order worth trying.</p>
+
+<p><strong>Drag it to Applications first.</strong> Opening it from the mounted
+disk image can fail outright, and when it does work the app is in a read-only
+holding area where it cannot remember anything.</p>
+
+<p><strong>macOS may ask you to confirm the first time.</strong> Anything you
+download carries a quarantine flag, and macOS checks it once before it will
+run. The app is signed with an Apple Developer ID and notarised by Apple, so
+this should be a single confirmation rather than a refusal. If macOS says it
+cannot be opened, go to <strong>System Settings ▸ Privacy &amp; Security</strong>,
+scroll down, and use <strong>Open Anyway</strong>.</p>
+
+<p><strong>Check your macOS version.</strong> It needs macOS&nbsp;14 or later.
+On an older system it will not start at all.</p>
+
+<p>If none of that is it, please tell me what you saw — see
+<a href="#something-wrong">Something wrong?</a> below. A description of what
+happened is worth more than a guess at why.</p>
+
+
 <h2>What this is not</h2>
 
 <p>PR&nbsp;Labeller is an independent program. It is <strong>not made by,
@@ -301,7 +324,7 @@ warning about unverified software.</p>
 </div>
 
 
-<h2>Something wrong?</h2>
+<h2 id="something-wrong">Something wrong?</h2>
 
 <p>In the app: <strong>Settings ▸ Diagnostics ▸ Send</strong>, or
 <strong>Help ▸ Report a Problem</strong>. It opens a message with a technical
@@ -314,7 +337,11 @@ send, and press send yourself. Say what you were doing, what you expected, and
 what happened instead — that sentence is usually worth more than everything
 underneath it.</p>
 
-<p>Or write to <a href="mailto:prlabeller@gmail.com">prlabeller@gmail.com</a>.</p>
+<p>Or write to <a href="mailto:prlabeller@gmail.com">prlabeller@gmail.com</a>.
+If clicking that does nothing, your Mac has no mail application set up — copy
+the address and write from wherever you normally read your mail. The link
+failing is silent, so it is worth saying: if no message window opened, nothing
+was sent.</p>
 
 
 <footer>
