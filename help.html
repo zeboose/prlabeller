@@ -242,7 +242,7 @@ yourself — so <code>McDonald</code> stays <code>McDonald</code>.</p>
 a whole selection at once, and <strong>Undo Contact Change</strong> puts it back.</p>
 
 
-<h2 id="formats">2 &nbsp;Your labels, and the two file formats</h2>
+<h2 id="formats">2 &nbsp;Your labels, and the file formats</h2>
 
 <p>This is the one part of the app worth reading properly, because it is the
 only place PR Labeller behaves differently from what you may expect.</p>
@@ -258,6 +258,20 @@ only place PR Labeller behaves differently from what you may expect.</p>
     <td><code>.prlabel</code></td>
     <td>The same file with a little extra added — the parts DYMO's format has no
         way to describe. Only PR Labeller opens these.</td>
+  </tr>
+  <tr>
+    <td><code>.dymo</code></td>
+    <td>DYMO Connect's format. PR Labeller reads it and writes it back: a label
+        you have not changed is saved exactly as it arrived, and Connect opens
+        it afterwards as though nothing had touched it. A few things cannot be
+        written back — an object at an angle Connect cannot express, or a shape
+        it has no name for — and you are told before you save, not after.</td>
+  </tr>
+  <tr>
+    <td>Tape labels</td>
+    <td>The cassette kind, from a LabelWriter Duo or a LabelManager. These can
+        be opened and printed. They cannot be saved yet, so the file you open
+        is left exactly as it is.</td>
   </tr>
 </table>
 
@@ -383,10 +397,17 @@ every change at once.</p>
 
 <h2 id="contacts">4 &nbsp;Contacts</h2>
 
-<p>PR Labeller reads DYMO address books (<code>.abx</code>) and plain
+<p>PR Labeller reads and writes DYMO Label address books
+(<code>.abx</code>), DYMO Connect address books (<code>.db</code>) and plain
 <code>.csv</code> files. On first run it looks in
-<code>Documents/DYMO Label Software/Address Books</code>; if yours is elsewhere,
-use <strong>Open Address Book…</strong> or Settings ▸ Folders.</p>
+<code>Documents/DYMO Label Software/Address Books</code> and in Connect's own
+folder; if yours is elsewhere, use <strong>Open Address Book…</strong> or
+Settings ▸ Folders.</p>
+
+<p><strong>Open</strong> replaces the book you are working in;
+<strong>Import Contacts…</strong> adds to it. Both warn you first, both leave
+the file you choose untouched, and the last import can be undone. Every change
+takes a dated backup of the whole book before it is made.</p>
 
 <h3>Selecting several</h3>
 <ul>
