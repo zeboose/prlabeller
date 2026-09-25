@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy — PR Labeller</title>
+<meta name="description" content="PR Labeller collects nothing and sends nothing. What the app, the website and the diagnostics report do with your information.">
+<style>
+  :root {
+    --ink:#1d1d1f; --ink-soft:#55555c; --ink-faint:#86868b;
+    --bg:#ffffff; --panel:#f5f5f7; --rule:#e2e2e6;
+    --accent:#0a58bf; --accent-ink:#ffffff;
+    --warn-bg:#fff8e6; --warn-rule:#e8c96a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink:#ececf1; --ink-soft:#b6b6bf; --ink-faint:#8a8a92;
+      --bg:#1b1b1f; --panel:#26262b; --rule:#38383f;
+      --accent:#3b7ae0; --accent-ink:#ffffff;
+      --warn-bg:#332c17; --warn-rule:#7a6528;
+    }
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; padding:0 24px 96px; background:var(--bg); color:var(--ink);
+    font:16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap { max-width:760px; margin:0 auto; }
+
+  header { padding:72px 0 8px; text-align:center; }
+  h1 { font-size:44px; line-height:1.08; margin:0 0 12px; letter-spacing:-0.03em; }
+  .tagline { font-size:20px; color:var(--ink-soft); margin:0 auto 6px; max-width:34em; }
+  .sub { font-size:15px; color:var(--ink-faint); margin:0 0 30px; }
+
+  .cta { text-align:center; margin:0 0 12px; }
+  .btn {
+    display:inline-block; background:var(--accent); color:var(--accent-ink);
+    text-decoration:none; font-size:17px; font-weight:600;
+    padding:13px 30px; border-radius:10px;
+  }
+  .btn:hover { filter:brightness(1.08); }
+  .cta small { display:block; margin-top:10px; color:var(--ink-faint); font-size:13.5px; }
+
+  .shot {
+    margin:36px 0 8px; border:1px solid var(--rule); border-radius:12px;
+    background:var(--panel); overflow:hidden;
+  }
+  .shot img { display:block; width:100%; height:auto; }
+  .shot figcaption {
+    padding:10px 16px; border-top:1px solid var(--rule);
+    color:var(--ink-faint); font-size:13px; text-align:center;
+  }
+
+  h2 { font-size:24px; letter-spacing:-0.015em; margin:52px 0 14px;
+       padding-top:14px; border-top:1px solid var(--rule); }
+  h3 { font-size:17px; margin:24px 0 6px; }
+  p { margin:0 0 13px; }
+  ul { margin:0 0 14px; padding-left:22px; }
+  li { margin:0 0 7px; }
+  a { color:var(--accent); }
+  strong { font-weight:600; }
+
+  table { border-collapse:collapse; width:100%; margin:0 0 18px; font-size:15px; }
+  th, td { text-align:left; padding:9px 12px; border-bottom:1px solid var(--rule); vertical-align:top; }
+  th { font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-faint); font-weight:600; }
+  td:first-child { white-space:nowrap; font-weight:600; width:30%; }
+
+  .deal { background:var(--panel); border:1px solid var(--rule); border-radius:12px; padding:20px 24px; }
+  .deal h3:first-child { margin-top:0; }
+  .warn { background:var(--warn-bg); border-left:3px solid var(--warn-rule);
+          border-radius:0 8px 8px 0; padding:14px 18px; margin:0 0 16px; font-size:15px; }
+  .note { background:var(--panel); border-left:3px solid var(--rule);
+          border-radius:0 8px 8px 0; padding:12px 16px; margin:0 0 16px;
+          color:var(--ink-soft); font-size:15px; }
+
+  code { font:13.5px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+         background:var(--panel); border:1px solid var(--rule); border-radius:4px; padding:1px 5px; }
+
+  footer { margin-top:60px; padding-top:22px; border-top:1px solid var(--rule);
+           color:var(--ink-faint); font-size:14px; text-align:center; }
+  footer p { margin:0 0 8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Privacy</h1>
+<p class="lede">PR Labeller does not collect anything, does not send anything,
+and has no server to send it to. This page says so in more detail, and is
+honest about the two places where somebody other than you does see something:
+the website and your email.</p>
+
+<h2>The app</h2>
+<p>PR Labeller has no accounts, no sign-in, no analytics, no crash reporting
+and no network code of any kind. It does not check for updates. Nothing you
+do in it leaves your Mac.</p>
+<p>Your labels, your address books and your settings are files on your own
+computer, in the places you chose. The app reads and writes them there. It
+makes a dated backup of an address book before it changes one, alongside the
+book itself. Nothing is copied anywhere else.</p>
+
+<h2>The diagnostics report</h2>
+<p>Settings ▸ Diagnostics writes a technical summary: the app and macOS
+versions, your Mac model, the printer and driver, the label sizes the driver
+offers, and the print alignment in use. It contains no addresses, no contacts
+and nothing from your labels.</p>
+<p>The report is composed on your Mac and shown to you. Pressing <strong>Send…</strong>
+opens a message in your own mail application, already addressed to
+prlabeller@gmail.com, with the text in it. You can read it, delete any part of
+it, and then send it yourself – or not send it. The app never sends anything
+on its own.</p>
+
+<h2>The website</h2>
+<p>This site is served by GitHub Pages and the downloads come from GitHub
+Releases. It has no cookies, no scripts, no web fonts and no trackers. GitHub,
+as the host, records ordinary web server information such as IP addresses, and
+counts how many times a file has been downloaded. That is GitHub's processing
+rather than ours, and is covered by
+<a href="https://docs.github.com/site-policy/privacy-policies/github-privacy-statement">GitHub's privacy statement</a>.
+We see only the download totals, which are numbers with nothing attached to
+them.</p>
+
+<h2>Email</h2>
+<p>If you write to prlabeller@gmail.com, we keep your message so we can answer
+it and so that a bug you reported is not forgotten. We do not add you to any
+list, and there is no list to add you to. Ask and your correspondence will be
+deleted.</p>
+
+<h2>Who we are</h2>
+<p>Zeboose&nbsp;Ltd, registered in England and Wales, is the data controller
+for the email described above. Write to
+<a href="mailto:prlabeller@gmail.com">prlabeller@gmail.com</a> about anything
+on this page, including a request to see or delete what we hold. Under UK data
+protection law you may also complain to the Information Commissioner's
+Office.</p>
+
+<h2>Changes</h2>
+<p>If this page changes, the date below changes with it. This version: 25
+September 2026.</p>
+
+
+<footer>
+  <p><a href="index.html">PR Labeller</a>
+     · <a href="help.html">Help</a>
+     · <a href="privacy.html">Privacy</a>
+     · <a href="terms.html">Terms</a>
+     · <a href="mailto:prlabeller@gmail.com">prlabeller@gmail.com</a></p>
+  <p>Zeboose&nbsp;Ltd, registered in England and Wales. DYMO and LabelWriter are
+     trademarks of Sanford,&nbsp;L.P.; this program is not associated with them.</p>
+</footer>
+
+</div>
+</body>
+</html>
